@@ -50,5 +50,15 @@ Changed Files From This Merge Commit:<br>
     """
     return page_content
 
+# Health check api for automated test
+@app.route("/health")
+def health():
+    return "OK", 200
+
+# Version verify api for automated test
+@app.route("/version")
+def version():
+    return get_git_commit_label(), 200
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
